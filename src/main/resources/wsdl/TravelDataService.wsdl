@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TravelDataService" targetNamespace="http://ws.prog4.mik.pte.hu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://ws.prog4.mik.pte.hu/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://ws.prog4.mik.pte.hu/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ws.prog4.mik.pte.hu/" version="1.0">
+
+  <xs:element name="getTravelData" type="tns:getTravelData"/>
+
+  <xs:element name="getTravelDataResponse" type="tns:getTravelDataResponse"/>
+
+  <xs:complexType name="getTravelData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:travelDataRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="travelDataRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="travelId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTravelDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:travelDataResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="travelDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="travelId" type="xs:string"/>
+      <xs:element minOccurs="0" name="uticel" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getTravelData">
+    <wsdl:part name="parameters" element="ns1:getTravelData">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTravelDataResponse">
+    <wsdl:part name="parameters" element="ns1:getTravelDataResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TravelDataService">
+    <wsdl:operation name="getTravelData">
+      <wsdl:input name="getTravelData" message="ns1:getTravelData">
+    </wsdl:input>
+      <wsdl:output name="getTravelDataResponse" message="ns1:getTravelDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

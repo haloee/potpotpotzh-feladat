@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="travelDataService" targetNamespace="hu.pte.mik.prog4.ws.soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="hu.pte.mik.prog4.ws.soap" xmlns:ns1="http://ws.prog4.mik.pte.hu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://ws.prog4.mik.pte.hu/" location="TravelDataService.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="travelDataServiceSoapBinding" type="ns1:TravelDataService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getTravelData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTravelData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTravelDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="travelDataService">
+    <wsdl:port name="SoapTravelDataServicePort" binding="tns:travelDataServiceSoapBinding">
+      <soap:address location="http://localhost:8081/potzh_ws_feladat_war_exploded/ws/uticel"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
