@@ -26,7 +26,7 @@ public class TravelService {
         return this.travelRepository.findTravelById(id);
     }
 
-    public Double getRating(String travelId) {
+    public Double getTravelling(String travelId) {
         return this.travelRepository.getUticel(travelId);
     }
 }
